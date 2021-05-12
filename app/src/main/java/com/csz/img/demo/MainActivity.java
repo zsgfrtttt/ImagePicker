@@ -79,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void loadImage(ImageView imageView, String imagePath) {
-            Log.i("csz","hhh   " +imagePath);
-            //小图加载 "https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"
-            Glide.with(imageView.getContext()).load(Uri.fromFile(new File(imagePath))).apply(mOptions).into(imageView);
+            Glide.with(imageView.getContext()).load(imagePath).apply(mOptions).into(imageView);
         }
 
         @Override
