@@ -1,5 +1,8 @@
 # Android图片选择器
 
+
+该项目主要是在* [https://github.com/Lichenwei-Dev/ImagePicker](https://github.com/Lichenwei-Dev/ImagePicker) 的基础上开发，对原项目的一些bug修复以及优化
+
 ### 引入依赖 
 在Project的build.gradle在添加以下代码
 ```
