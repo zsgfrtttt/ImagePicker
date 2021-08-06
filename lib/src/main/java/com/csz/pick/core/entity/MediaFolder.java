@@ -1,5 +1,7 @@
 package com.csz.pick.core.entity;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 public class MediaFolder {
 
     private int folderId; //媒体分类id
-    private String folderName; //媒体分类名称
+    private @Nullable String folderName; //媒体分类名称
     private String folderCoverPath; //分类封面图片路径
     private boolean isCheck;
     private ArrayList<MediaFile> mediaFileList; //分类下的子文件
@@ -68,5 +70,17 @@ public class MediaFolder {
 
     public void setTag(Object tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public String toString() {
+        return "MediaFolder{" +
+                "folderId=" + folderId +
+                ", folderName='" + folderName + '\'' +
+                ", folderCoverPath='" + folderCoverPath + '\'' +
+                ", isCheck=" + isCheck +
+                ", mediaFileList=" + mediaFileList +
+                ", tag=" + tag +
+                '}';
     }
 }

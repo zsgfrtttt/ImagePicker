@@ -1,6 +1,7 @@
 package com.csz.pick.core.task;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.csz.pick.core.entity.MediaFile;
 import com.csz.pick.core.loader.ImageScanner;

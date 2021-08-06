@@ -1,6 +1,7 @@
 package com.csz.pick.core.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.csz.pick.core.R;
 import com.csz.pick.core.entity.MediaFile;
@@ -117,24 +118,33 @@ public class MediaUtil {
         for (Integer folderId : mediaFolderMap.keySet()) {
             mediaFolderList.add(mediaFolderMap.get(folderId));
         }
-
         //按照图片文件夹的数量排序
         Collections.sort(mediaFolderList, new Comparator<MediaFolder>() {
             @Override
             public int compare(MediaFolder o1, MediaFolder o2) {
-                if (String.valueOf(ALL_MEDIA_FOLDER).equals(o1.getTag())){
+                if(o1.getTag() == null || o2.getTag() == null) return 0;
+                if (String.valueOf(ALL_MEDIA_FOLDER).equals(o1.getTag())) {
                     return -1;
                 }
-                if (String.valueOf(ALL_MEDIA_FOLDER).equals(o2.getTag())){
+                if (String.valueOf(ALL_MEDIA_FOLDER).equals(o2.getTag())) {
                     return 1;
                 }
-                if (String.valueOf(ALL_VIDEO_FOLDER).equals(o1.getTag())){
+                if (String.valueOf(ALL_VIDEO_FOLDER).equals(o1.getTag())) {
                     return -1;
                 }
-                if (String.valueOf(ALL_VIDEO_FOLDER).equals(o2.getTag())){
+                if (String.valueOf(ALL_VIDEO_FOLDER).equals(o2.getTag())) {
                     return 1;
                 }
-                return o1.getFolderName().compareTo(o2.getFolderName());
+                if (o1.getFolderName() != null && o2.getFolderName() != null) {
+                    return o1.getFolderName().compareTo(o2.getFolderName());
+                }
+                if (o1.getFolderName() != null) {
+                    return 1;
+                }
+                if (o2.getFolderName() != null) {
+                    return 1;
+                }
+                return o1.getMediaFileList().size() - o2.getMediaFileList().size();
             }
         });
 
