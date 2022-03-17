@@ -61,4 +61,16 @@ public class MediaFile {
     public void setDateToken(long dateToken) {
         this.dateToken = dateToken;
     }
+
+    @Override
+    public String toString() {
+        return "MediaFile{" +
+                "path='" + path + '\'' +
+                ", mime='" + mime + '\'' +
+                ", folderId=" + folderId +
+                ", folderName='" + folderName + '\'' +
+                ", duration=" + duration +
+                ", dateToken=" + dateToken +
+                '}';
+    }
 }

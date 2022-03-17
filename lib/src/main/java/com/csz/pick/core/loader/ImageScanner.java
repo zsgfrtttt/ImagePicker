@@ -5,8 +5,11 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.csz.pick.core.entity.MediaFile;
+
+import java.io.File;
 
 /**
  * @author caishuzhan
@@ -69,6 +72,9 @@ public class ImageScanner extends AbsMediaScanner<MediaFile> {
         Integer folderId = cursor.getInt(cursor.getColumnIndex(MediaStore.Images.Media.BUCKET_ID));
         String folderName = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.BUCKET_DISPLAY_NAME));
         long dateToken = cursor.getLong(cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN));
+        if (!new File(path).exists()){
+            return null;
+        }
 
         MediaFile mediaFile = new MediaFile();
         mediaFile.setPath(path);
@@ -76,7 +82,6 @@ public class ImageScanner extends AbsMediaScanner<MediaFile> {
         mediaFile.setFolderId(folderId);
         mediaFile.setFolderName(folderName);
         mediaFile.setDateToken(dateToken);
-
         return mediaFile;
     }
 }
