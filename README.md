@@ -15,7 +15,7 @@
 ```
 在Module的build.gradle在添加以下代码
 ```
-	implementation 'com.github.zsgfrtttt:ImagePicker:1.0.1'
+	implementation 'com.github.zsgfrtttt:ImagePicker:1.0.4'
 ```
 **注意：** 依赖迁移至Androidx
 
